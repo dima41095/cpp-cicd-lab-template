@@ -22,6 +22,9 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
       - name: Convert repository name to lowercase
         run: |
           echo "REPO_LOWER=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
